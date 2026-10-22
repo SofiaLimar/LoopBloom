@@ -1,5 +1,7 @@
 # LoopBloom
 
+**Ver o site:** https://sofialimar.github.io/LoopBloom/
+
 Landing page de um ateliê fictício de bolsas de crochê feitas à mão.
 
 > **Projeto conceitual.** Desenvolvido para fins acadêmicos e de portfólio de design. O site é fictício: as peças não estão à venda e as encomendas não são processadas.
@@ -18,7 +20,7 @@ Abra `index.html` no navegador, ou publique a pasta no GitHub Pages (Settings > 
 ## Estrutura
 
 - `index.html`: a página inteira.
-- `img/`: imagens otimizadas usadas no site.
+- `img/`: imagens otimizadas usadas no site (inclui `og.jpg`, a prévia do link).
 - `originais/`: fotos originais em alta resolução (ignoradas pelo Git, ver `.gitignore`).
 
 ## Créditos das fotos
