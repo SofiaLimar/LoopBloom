@@ -1,6 +1,6 @@
 # LoopBloom
 
-**Ver o site:** https://sofialimar.github.io/LoopBloom/
+**Ver o site:** https://loop-bloom-gules.vercel.app/ (também em https://sofialimar.github.io/LoopBloom/)
 
 Landing page de um ateliê fictício de bolsas de crochê feitas à mão.
 
