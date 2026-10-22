@@ -117,10 +117,12 @@
   .look:nth-child(5), .look:nth-child(7) { margin-top: 2.4rem; }
   .look .quadro { position: relative; overflow: hidden; border-radius: 20px; aspect-ratio: 3/4; background: #e4dccd; box-shadow: 0 18px 36px -24px rgba(59,43,37,.5); }
   .look:nth-child(n+4) .quadro { aspect-ratio: 4/5; }
+  .look:nth-child(n+4) h3 { font-size: 1.2rem; }
+  .look:nth-child(n+4) .ver { font-size: .6rem; letter-spacing: .14em; }
   .look img { object-position: center; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
   .look:hover img, .look:focus-visible img { transform: scale(1.12); }
   .look:focus-visible { outline: 2px solid var(--coral); outline-offset: 6px; border-radius: 22px; }
-  .look .legenda { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .3rem 1rem; padding: 1rem .2rem 0; }
+  .look .legenda { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: baseline; gap: .3rem .6rem; padding: 1rem .2rem 0; }
   .look h3 { font-size: 1.35rem; white-space: nowrap; font-weight: 400; color: var(--espresso); }
   .look .ver { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-esc); white-space: nowrap; border-bottom: 1px solid transparent; transition: border-color .3s; }
   .look:hover .ver { border-bottom-color: var(--rosa-esc); }
@@ -217,6 +219,7 @@
   .rodape .logo-nav span { font-size: .8rem; }
   .rodape small { font-size: .8rem; line-height: 1.65; color: #2c2825; text-align: center; max-width: 34rem; margin-inline: auto; }
 
+  @media (max-width: 1000px) { .look .legenda { flex-wrap: wrap; } }
   @media (max-width: 860px) {
     .menu-btn { display: block; }
     .btn-nav { display: none; }
