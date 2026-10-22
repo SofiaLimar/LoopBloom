@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoopBloom — Bolsas de crochê feitas sob encomenda</title>
+<meta name="description" content="Bolsas autorais de crochê feitas à mão, sob encomenda e em edição limitada. Escolha o modelo e agende a produção com o ateliê.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Crect width=%2740%27 height=%2740%27 rx=%278%27 fill=%27%23f3ece0%27/%3E%3Cg fill=%27none%27 stroke=%27%23c4573f%27 stroke-width=%271.6%27 stroke-linecap=%27round%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%272%27/%3E%3Cellipse cx=%2720%27 cy=%2711%27 rx=%274%27 ry=%277%27/%3E%3Cellipse cx=%2720%27 cy=%2729%27 rx=%274%27 ry=%277%27/%3E%3Cellipse cx=%2711%27 cy=%2720%27 rx=%277%27 ry=%274%27/%3E%3Cellipse cx=%2729%27 cy=%2720%27 rx=%277%27 ry=%274%27/%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#f3ece0">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="LoopBloom">
+<meta property="og:title" content="LoopBloom — Bolsas de crochê feitas sob encomenda">
+<meta property="og:description" content="Bolsas autorais de crochê feitas à mão, sob encomenda e em edição limitada. Escolha o modelo e agende a produção com o ateliê.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&family=Tenor+Sans&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --faixa-h: clamp(44px, 5vw, 70px);
+    --coral: #c4573f;
+    --sol: #e0b04f;
+    --mar: #4f8f86;
+    --chicle: #e6a99d;
+    --noite: #1d2340;
+    --espresso: #3b2b25;
+    --creme: #f3ece0;
+    --branco: #fffdf8;
+    --cinza: #5b6079;
+    --display: "Cormorant Garamond", Georgia, serif;
+    --vivo: "Cormorant Garamond", Georgia, serif;
+    --texto: "Outfit", system-ui, -apple-system, sans-serif;
+    --rosa: #d4786f;
+    --rosa-esc: #a84a42;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--texto); font-weight: 400; background-color: var(--creme); color: var(--noite); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  /* trama de linho sobre a página inteira, bem sutil */
+  body::after { content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='300'%20height='300'%3E%3Cfilter%20id='h'%20x='0'%20y='0'%20width='100%25'%20height='100%25'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.012%200.9'%20numOctaves='2' stitchTiles='stitch'%20seed='3'/%3E%3CfeColorMatrix%20values='0%200%200%200%20.35%20%200%200%200%200%20.25%20%200%200%200%200%20.2%20%200%200%200%201.6%20-.55'/%3E%3C/filter%3E%3Cfilter%20id='v'%20x='0'%20y='0'%20width='100%25'%20height='100%25'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9%200.012'%20numOctaves='2' stitchTiles='stitch'%20seed='8'/%3E%3CfeColorMatrix%20values='0%200%200%200%20.35%20%200%200%200%200%20.25%20%200%200%200%200%20.2%20%200%200%200%201.6%20-.55'/%3E%3C/filter%3E%3Crect%20width='300'%20height='300'%20filter='url%28%23h%29'/%3E%3Crect%20width='300'%20height='300'%20filter='url%28%23v%29'/%3E%3C/svg%3E"); background-size: 300px 300px; opacity: .1; mix-blend-mode: multiply; }
+  .container { width: min(1120px, 100% - 2.4rem); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.12; letter-spacing: -.01em; font-weight: 500; }
+  h1 em, h2 em, h3 em { font-style: italic; }
+  h2 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); margin-bottom: 1rem; }
+  section { padding: clamp(4rem, 9vw, 6.5rem) 0; position: relative; }
+  .tag { display: inline-block; font-family: var(--texto); font-weight: 500; font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-esc); margin-bottom: 1rem; }
+  #pecas h2, #encomendar h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; font-size: clamp(2.3rem, 4.8vw, 3.6rem); }
+  .lead { font-size: 1.15rem; font-weight: 300; color: var(--cinza); max-width: 54ch; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; font-family: var(--texto); font-weight: 500; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; padding: 1rem 1.8rem; border-radius: 999px; border: 1px solid var(--coral); background: transparent; color: var(--coral); text-decoration: none; cursor: pointer; box-shadow: none; transition: background .35s ease, color .35s ease; }
+  .btn:hover, .btn:focus-visible { background: var(--coral); color: #f5ecdc; }
+
+  /* BARRA DE NAVEGAÇÃO */
+  .topo { position: sticky; top: 0; z-index: 60; background: rgba(243,236,224,.88); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(29,35,64,.14); }
+  .barra { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.4rem; min-height: 3.9rem; }
+  .logo-nav { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--espresso); justify-self: start; }
+  .logo-nav svg { width: 2rem; height: 2rem; fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .logo-nav span { font-family: "Tenor Sans", var(--texto); font-size: 1.05rem; letter-spacing: .32em; text-transform: uppercase; white-space: nowrap; margin-right: -.32em; }
+  .links { list-style: none; display: flex; gap: 2.4rem; }
+  .links a { font-family: var(--texto); font-weight: 400; font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; color: var(--noite); text-decoration: none; padding: .3rem 0; border-bottom: 2px solid transparent; transition: border-color .2s, color .2s; }
+  .links a:hover, .links a.ativo { color: var(--rosa-esc); border-bottom-color: var(--rosa); }
+  .btn-nav { justify-self: end; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; text-decoration: none; color: var(--coral); background: transparent; border: 1.5px solid var(--coral); padding: calc(.7rem - 1.5px) calc(1.1rem - 1.5px); border-radius: 999px; transition: background .2s; white-space: nowrap; }
+  .btn-nav:hover { background: var(--coral); color: var(--branco); }
+  .menu-btn { display: none; margin-left: auto; font: 500 .74rem var(--texto); letter-spacing: .2em; text-transform: uppercase; background: none; border: 1.5px solid var(--noite); border-radius: 12px; padding: .55rem .9rem; cursor: pointer; color: var(--noite); }
+  section { scroll-margin-top: 4.4rem; }
+
+  /* HERO */
+  .hero { min-height: calc(100vh - 4.1rem - var(--faixa-h)); min-height: calc(100svh - 4.1rem - var(--faixa-h)); display: flex; flex-direction: column; justify-content: center; position: relative; background: var(--creme); padding-bottom: 0; overflow: hidden; }
+
+
+  .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding: clamp(1.6rem, 3.5vw, 3rem) 0 clamp(1.8rem, 3vw, 2.4rem); }
+  .hero h1 { font-size: clamp(2.6rem, 4.7vw, 4.2rem); line-height: 1.05; margin-bottom: 1rem; text-wrap: balance; }
+  .hero h1 em { color: var(--rosa-esc); }
+  .hero .sub { font-size: .98rem; font-weight: 400; line-height: 1.55; max-width: 58ch; margin-bottom: 1rem; color: #4a3a33; }
+  .hero-grid > div:first-child { align-self: stretch; display: flex; flex-direction: column; align-items: flex-start; }
+  .hero-grid > div:first-child h1 { margin-top: auto; }
+  .prova { margin-top: auto; padding-top: 2rem; }
+  .nota { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .8rem; font-size: .68rem; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: #4a3a33; }
+  .nota .estrelas { color: var(--coral); letter-spacing: .1em; font-size: .72rem; }
+  .nota i { font-style: normal; opacity: .5; }
+  .hero-act { display: flex; gap: .8rem; flex-wrap: wrap; }
+
+  .hero > .container { position: relative; z-index: 1; }
+  /* vitrine: foto do ateliê */
+  .vitrine { position: relative; width: min(100%, 440px); margin: 0 0 0 auto; }
+  .vitrine .arco { display: block; width: 78%; object-position: 50% 100%; margin-left: auto; height: clamp(280px, calc(100vh - 340px), 600px); height: clamp(280px, calc(100svh - 340px), 600px); object-fit: cover; border-radius: 999px 999px 26px 26px; box-shadow: 0 18px 40px -18px rgba(59,43,37,.5); }
+  .vitrine figcaption { margin-top: .9rem; font-size: .62rem; letter-spacing: .32em; text-transform: uppercase; color: var(--espresso); opacity: .7; text-align: right; }
+  .vitrine figcaption a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(59,43,37,.35); padding-bottom: 1px; transition: color .2s, border-color .2s; }
+  .vitrine figcaption a:hover { color: var(--rosa-esc); border-bottom-color: var(--rosa-esc); }
+  .look.destaque .quadro { outline: 2px solid var(--coral); outline-offset: 6px; transition: outline-color .6s; }
+  .vitrine .circ:hover { transform: scale(1.32); z-index: 3; box-shadow: 0 18px 36px -14px rgba(59,43,37,.6); }
+  .vitrine .circ { position: absolute; height: auto; object-fit: cover; border: 4px solid var(--creme); box-shadow: 0 12px 26px -14px rgba(59,43,37,.5); }
+  .vitrine .circ { transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; transform-origin: 30% 70%; }
+  .vitrine .trama { left: -2%; bottom: 1.4rem; width: 46%; aspect-ratio: 1; border-radius: 50%; object-position: 50% 62%; }
+  @keyframes gira { to { transform: rotate(360deg); } }
+
+  /* FAIXA */
+  .faixa { background: var(--coral); color: #f5ecdc; }
+  .faixa div { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .5rem 0; padding: .95rem 0; font-family: "Tenor Sans", var(--texto); font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; }
+  .faixa span { margin: 0 1.4rem; margin-right: calc(1.4rem - .3em); }
+  .faixa span.p { margin: 0 .2rem; opacity: .7; }
+  .faixa span:nth-child(n+8) { display: none; }
+  @keyframes corre { to { transform: translateX(-50%); } }
+
+  /* PEÇAS */
+  .grid-pecas { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3rem 1.6rem; margin-top: 3.2rem; align-items: start; }
+  .look { grid-column: span 3; display: block; color: inherit; text-decoration: none; }
+  .look:nth-child(-n+3) { grid-column: span 4; }
+  .look:nth-child(2) { margin-top: 4.5rem; }
+  .look:nth-child(5), .look:nth-child(7) { margin-top: 2.4rem; }
+  .look .quadro { position: relative; overflow: hidden; border-radius: 20px; aspect-ratio: 3/4; background: #e4dccd; box-shadow: 0 18px 36px -24px rgba(59,43,37,.5); }
+  .look:nth-child(n+4) .quadro { aspect-ratio: 4/5; }
+  .look img { object-position: center; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .look:hover img, .look:focus-visible img { transform: scale(1.12); }
+  .look:focus-visible { outline: 2px solid var(--coral); outline-offset: 6px; border-radius: 22px; }
+  .look .legenda { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .3rem 1rem; padding: 1rem .2rem 0; }
+  .look h3 { font-size: 1.35rem; white-space: nowrap; font-weight: 400; color: var(--espresso); }
+  .look .ver { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-esc); white-space: nowrap; border-bottom: 1px solid transparent; transition: border-color .3s; }
+  .look:hover .ver { border-bottom-color: var(--rosa-esc); }
+  .foto { aspect-ratio: 4/3.6; display: grid; place-items: center; position: relative; border-bottom: 1.5px solid var(--noite); }
+  .foto b { font-family: var(--display); font-weight: 400; font-size: 2.2rem; color: var(--noite); background: var(--branco); border: 1.5px solid var(--noite); border-radius: 4px; padding: .1em .5em; transform: rotate(-3deg); }
+  .foto em { position: absolute; top: .7rem; left: .7rem; font-style: normal; font-size: .72rem; font-weight: 700; background: var(--noite); color: var(--branco); padding: .2rem .6rem; border-radius: 2px; }
+  .foto.img { background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .f1 { background-color: var(--coral); background-image: radial-gradient(rgba(255,255,255,.35) 16%, transparent 18%); background-size: 24px 24px; }
+  .f2 { background-color: var(--mar); background-image: repeating-radial-gradient(circle at 0 0, transparent 0 11px, rgba(255,255,255,.3) 11px 13px); }
+  .f3 { background-color: var(--sol); background-image: linear-gradient(45deg, rgba(255,255,255,.4) 25%, transparent 25% 75%, rgba(255,255,255,.4) 75%), linear-gradient(45deg, rgba(255,255,255,.4) 25%, transparent 25% 75%, rgba(255,255,255,.4) 75%); background-size: 30px 30px; background-position: 0 0, 15px 15px; }
+  .f4 { background-color: var(--chicle); background-image: radial-gradient(circle at 50% 50%, transparent 0 7px, rgba(255,255,255,.4) 7px 10px, transparent 10px); background-size: 28px 28px; }
+  .f5 { background-color: #7d7aa8; background-image: repeating-linear-gradient(60deg, rgba(255,255,255,.25) 0 6px, transparent 6px 18px); }
+  .f6 { background-color: #e0a05a; background-image: radial-gradient(rgba(255,255,255,.4) 18%, transparent 20%); background-size: 18px 18px; }
+  .aviso { margin-top: 1.6rem; font-size: .9rem; color: var(--cinza); }
+
+  /* COMO FUNCIONA */
+
+  /* MONTADOR */
+  .enc-tag { font-size: .75rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-esc); margin-bottom: 1rem; }
+  .confeccao { list-style: none; display: grid; gap: 1.2rem; padding: .4rem .4rem 0; }
+  .confeccao li { display: flex; gap: 1rem; align-items: flex-start; }
+  .confeccao svg { width: 1.7rem; height: 1.7rem; flex: none; fill: none; stroke: var(--coral); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; margin-top: .1rem; }
+  .confeccao strong { display: block; font-family: var(--vivo); font-weight: 600; font-size: 1.2rem; color: var(--espresso); }
+  .confeccao span { display: block; font-size: .9rem; font-weight: 300; line-height: 1.5; color: #2c2825; }
+  .montador-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem; margin-top: 2.6rem; align-items: stretch; }
+  .previa { margin: 0; position: relative; overflow: hidden; border-radius: 22px; aspect-ratio: 2 / 3; align-self: start; background: #e4dccd; box-shadow: 0 18px 36px -24px rgba(59,43,37,.5); }
+  .previa img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .col-modelo { align-self: start; }
+  .col-info { border: 1px solid rgba(196,87,63,.35); border-radius: 22px; padding: 1.6rem 1.7rem; display: flex; flex-direction: column; }
+  .col-info .status { display: flex; gap: .6rem; align-items: baseline; font-size: .88rem; line-height: 1.5; color: #4a3a33; }
+  .col-info .status i { width: .5rem; height: .5rem; border-radius: 50%; background: #6f8f5a; flex: none; }
+  .col-info .material { margin-top: .5rem; font-size: .88rem; font-weight: 300; color: #4a3a33; }
+  .col-info .modelo { font-size: 2.1rem; font-weight: 500; color: var(--espresso); margin-bottom: .5rem; }
+  .col-info .confeccao { margin: 1.4rem 0 1.6rem; padding: 1.2rem 0 0; border-top: 1px solid rgba(59,43,37,.2); }
+  .col-info .btn { margin-top: auto; width: 100%; }
+  .bloco { border: 1px solid rgba(196,87,63,.35); border-radius: 22px; padding: 1.6rem 1.7rem; }
+  .bloco h3 { font-size: 1.6rem; font-weight: 500; color: var(--espresso); margin-bottom: 1.1rem; }
+  .opcoes { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .op { font-family: var(--texto); font-weight: 400; font-size: .92rem; letter-spacing: .03em; text-transform: none; padding: .65rem 1.3rem; border: 1px solid var(--coral); border-radius: 999px; background: transparent; cursor: pointer; color: var(--coral); transition: background .35s ease, color .35s ease; }
+  .op:hover, .op:focus-visible, .op.sel { background: var(--coral); color: #f5ecdc; }
+
+
+  .faixa-foto { margin: 0; }
+  .faixa-foto img { display: block; width: 100%; height: var(--faixa-h); object-fit: cover; filter: saturate(.5) sepia(.12) brightness(1.03); }
+  .faixa-foto.terracota { background: var(--coral); }
+  .faixa-foto.terracota img { filter: grayscale(1) contrast(1.1) brightness(1.25); mix-blend-mode: multiply; }
+  #pecas { padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem); }
+  #encomendar { padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3rem, 6vw, 5rem); }
+  /* QUEM FAZ */
+  .quem { padding: clamp(3rem, 6vw, 5rem) 0; }
+  .quem-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2.5rem, 6vw, 5.5rem); align-items: stretch; }
+  .quem-txt { display: flex; flex-direction: column; justify-content: center; padding-block: clamp(1rem, 2.5vw, 2rem); }
+  .retrato { margin: 0; min-height: 23rem; position: relative; }
+  .retrato img { position: absolute; inset: 0; object-position: 50% 45%; }
+  .retrato img, .retrato-vazio { display: block; width: 100%; height: 100%; min-height: 23rem; object-fit: cover; border-radius: 999px 999px 24px 24px; box-shadow: 0 18px 40px -22px rgba(59,43,37,.5); }
+  .retrato-vazio { position: relative; display: grid; place-content: center; justify-items: center; gap: 1rem; background: #e6dccb; box-shadow: none; border: 1px solid rgba(196,87,63,.3); text-align: center; }
+  .retrato-vazio svg { width: 45%; fill: none; stroke: var(--coral); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .5; }
+  .retrato-vazio span { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: #4a3a33; line-height: 1.8; }
+  .quem-tag { font-size: .8rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--rosa-esc); margin: 0 0 16px; }
+  .quem-txt h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 24px; }
+  .quem-txt h2 em { font-style: italic; }
+  .quem-txt p:not(.quem-tag):not(.quem-assina) { font-size: 1rem; line-height: 1.8; font-weight: 300; color: #2c2825; max-width: 52ch; margin-bottom: 1.2rem; }
+  .quem-por { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: #4a3a33; margin: 1.4rem 0 .1rem; }
+  .quem-assina { font-family: "Caveat", cursive; font-size: 1.9rem; line-height: 1.1; color: var(--espresso); }
+
+  /* FAQ */
+  .modal { border: 1px solid rgba(196,87,63,.4); border-radius: 24px; padding: clamp(2rem, 5vw, 3rem); max-width: min(34rem, calc(100% - 2.4rem)); margin: auto; background: var(--creme); color: var(--espresso); text-align: center; box-shadow: 0 30px 70px -30px rgba(59,43,37,.55); }
+  .modal::backdrop { background: rgba(59,43,37,.45); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+  .modal-tag { font-size: .72rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--rosa-esc); margin-bottom: 1rem; padding-left: .3em; }
+  .modal h2 { font-size: 1.9rem; font-weight: 500; line-height: 1.25; margin-bottom: 1rem; }
+  .modal p:not(.modal-tag) { font-size: .95rem; line-height: 1.7; font-weight: 300; color: #2c2825; margin-bottom: 1.8rem; }
+  .modal .btn { padding: 1rem 2rem; }
+  .modal .btn:focus-visible { outline: 2px solid var(--rosa-esc); outline-offset: 3px; }
+  .faq { padding: clamp(3rem, 6vw, 5rem) 0; }
+  .faq h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); margin-bottom: 1.6rem; }
+  .faq-lista { max-width: 780px; border-top: 1px solid rgba(59,43,37,.22); }
+  details { border-bottom: 1px solid rgba(59,43,37,.22); padding: 1.3rem .2rem; }
+  summary { font-family: var(--display); font-weight: 500; font-size: 1.5rem; line-height: 1.35; color: var(--espresso); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--texto); font-weight: 300; font-size: 1.6rem; line-height: 1; color: var(--coral); flex: none; }
+  details[open] summary::after { content: "–"; }
+  details p { margin-top: .9rem; max-width: 62ch; font-size: .98rem; line-height: 1.75; font-weight: 300; color: #2c2825; }
+
+  .final { text-align: center; padding: clamp(3rem, 6vw, 5rem) 0; }
+  .final-moldura { max-width: 860px; margin: 0 auto; padding: clamp(2.6rem, 6vw, 4.2rem) clamp(1.4rem, 5vw, 3.5rem); border: 1px solid rgba(196,87,63,.4); border-radius: 24px; }
+  .final-tag { font-size: .75rem; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; color: var(--rosa-esc); margin-bottom: 1.4rem; padding-left: .32em; }
+  .final h2 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); font-weight: 400; line-height: 1.25; max-width: 28ch; margin: 0 auto 1.2rem; text-wrap: balance; }
+  .final p.final-txt { max-width: 48ch; margin: 0 auto 2rem; color: #2c2825; font-weight: 300; font-size: 1rem; line-height: 1.75; }
+
+  footer { padding: 1.6rem 0 1.8rem; font-size: .8rem; color: #4a3a33; }
+  .rodape { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1.2rem; }
+  .rodape .logo-nav { justify-self: start; }
+  .rodape .logo-nav svg { width: 1.5rem; height: 1.5rem; }
+  .rodape .logo-nav span { font-size: .8rem; }
+  .rodape small { font-size: .8rem; line-height: 1.65; color: #2c2825; text-align: center; max-width: 34rem; margin-inline: auto; }
+
+  @media (max-width: 860px) {
+    .menu-btn { display: block; }
+    .btn-nav { display: none; }
+    .barra { display: flex; }
+    .links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--creme); border-bottom: 1px solid rgba(29,35,64,.18); padding: .6rem 1.2rem 1rem; margin: 0; }
+    .topo.aberto .links { display: flex; }
+    .links a { display: block; padding: .8rem 0; }
+    .hero-grid, .montador-grid, .quem-grid { grid-template-columns: 1fr; }
+    
+    }
+  @media (max-width: 860px) { .rodape { grid-template-columns: 1fr; justify-items: center; text-align: center; } .rodape .logo-nav { justify-self: center; } .grid-pecas { grid-template-columns: repeat(2, 1fr); gap: 2.2rem 1rem; } .look, .look:nth-child(-n+3) { grid-column: span 1; } .look:nth-child(n) { margin-top: 0; } .look:nth-child(even) { margin-top: 2rem; } .look:nth-child(n) .quadro { aspect-ratio: 3/4; } .look:nth-child(7) { grid-column: span 2; } }
+  @media (max-width: 560px) {
+    .nota i { display: none; }
+    .nota { flex-direction: column; align-items: flex-start; gap: .4rem; }
+    .btn { letter-spacing: .14em; padding: 1rem 1.2rem; white-space: nowrap; }
+    .faixa div { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem .5rem; padding: 1rem .8rem; font-size: .66rem; letter-spacing: .18em; text-align: center; }
+    .faixa span, .faixa span.p { margin: 0; }
+    .faixa span.p { display: none; }
+    .faixa span:nth-child(n+8) { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .faixa div { animation: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="topo" id="topo" aria-label="Navegação principal">
+  <div class="container barra">
+    <a class="logo-nav" href="#" aria-label="LoopBloom, início"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 20 C15.2 13.3 14.2 3.7 20.0 5.0 C25.8 3.7 24.8 13.3 20 20 C24.9 13.4 33.7 9.5 34.3 15.4 C37.2 20.5 27.9 22.5 20 20 C27.8 22.6 34.2 29.8 28.8 32.1 C24.9 36.5 20.1 28.2 20 20 C19.9 28.2 15.1 36.5 11.2 32.1 C5.8 29.8 12.2 22.6 20 20 C12.1 22.5 2.8 20.5 5.7 15.4 C6.3 9.5 15.1 13.4 20 20"/></svg><span>LoopBloom</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#pecas">Bolsas</a></li>
+      <li><a href="#quem">Quem faz</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul>
+    <a class="btn-nav" href="#encomendar">Fazer encomenda</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+
+    <div class="hero-grid">
+      <div>
+        <h1>A presença <em>inconfundível</em> de uma peça tecida à mão.</h1>
+        <p class="sub">Bolsas autorais feitas à mão em fios de algodão natural com seleção rigorosa de matérias-primas. Cada modelo é uma criação exclusiva, tecida sob encomenda em edição limitada.</p>
+        <div class="hero-act">
+          <a class="btn" href="#encomendar">Conheça a coleção</a>
+        </div>
+        <div class="prova">
+          <p class="nota"><span class="estrelas" aria-hidden="true">★★★★★</span><span>4.9/5</span><i aria-hidden="true">·</i><span>Mais de 100 peças tecidas sob encomenda</span><i aria-hidden="true">·</i><span>Enviamos para todo o Brasil</span></p>
+        </div>
+      </div>
+
+      <figure class="vitrine">
+        <img class="arco" src="img/arina-6654124.jpg" alt="Modelo de camisa branca com bolsa de crochê em rede no ombro" width="933" height="1400">
+        <img class="circ trama" src="img/arina-6654139.jpg" alt="Bolsa de crochê em rede segurada pelas alças, com frutas dentro" width="933" height="1400">
+        <figcaption>Coleção autoral • <a href="#pecas" id="verTulum">Bolsa Tulum em crochê</a></figcaption>
+      </figure>
+    </div>
+
+  </div>
+</header>
+
+<figure class="faixa-foto">
+    <img src="img/faixa.jpg" alt="Detalhe aproximado de pontos de crochê em fio de algodão mostarda" width="1800" height="540" loading="lazy">
+  </figure>
+
+<section id="pecas">
+  <div class="container">
+    <span class="tag">A coleção</span>
+    <h2>Edições Limitadas &amp; Bolsas <em>Autorais</em></h2>
+    <p class="lead">Lançamos poucas coleções por ano, no ritmo do slow fashion: cada modelo é tecido somente sob encomenda, sem estoque parado e sem desperdício de fio, em edição numerada e limitada.</p>
+    <div class="grid-pecas" id="gradePecas"></div>
+  </div>
+</section>
+
+<figure class="faixa-foto terracota">
+    <img src="img/faixa.jpg" alt="Detalhe aproximado de pontos de crochê em fio de algodão mostarda" width="1800" height="540" loading="lazy">
+  </figure>
+
+<section id="encomendar">
+  <div class="container">
+    <p class="enc-tag">Ateliê sob encomenda</p>
+    <h2>Agende a Produção da <em>Sua Bolsa</em></h2>
+    <p class="lead">Selecione o modelo desejado da coleção para consultar a disponibilidade de vagas e iniciar o seu pedido direto com a costureira.</p>
+
+    <div class="montador-grid">
+      <div class="col-modelo">
+        <div class="bloco">
+          <h3>Selecione o modelo</h3>
+          <div class="opcoes" id="opPeca"></div>
+        </div>
+      </div>
+
+      <figure class="previa" id="previa"><img id="previaImg" alt=""></figure>
+
+      <aside class="col-info">
+        <h3 class="modelo" id="previaNome">Bolsa Tulum</h3>
+        <p class="status"><i aria-hidden="true"></i>Edição limitada • Vagas para produção disponíveis</p>
+        <p class="material">Fio 100% algodão natural • Feita à mão</p>
+        <ul class="confeccao">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M4.2 8.5c5 .8 9 4.5 10.5 10M3.6 12.5c4 0 8 3 9.3 7M8 4c3.5 2 6.5 5.5 7 10"/><path d="M16 17.5c2 .5 3.5 1 5 3"/></svg><div><strong>Produção autoral</strong><span>Produzida individualmente após a solicitação.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg><div><strong>Prazo do ateliê</strong><span>Produção estimada em 35 dias úteis.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></svg><div><strong>Envio seguro</strong><span>Peça entregue em embalagem especial perfumada.</span></div></li>
+        </ul>
+        <a class="btn" id="enviar" href="#" data-modal>Enviar pedido ao ateliê →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="quem" id="quem">
+  <div class="container quem-grid">
+    <figure class="retrato">
+      <img src="img/artesa.jpg" alt="Mãos de uma artesã tecendo crochê em fio cinza, à luz natural da janela" width="933" height="1400" loading="lazy">
+    </figure>
+    <div class="quem-txt">
+      <p class="quem-tag">Quem faz</p>
+      <h2>Cada ponto tem uma <em>mão</em> por trás</h2>
+      <p>“Para mim, crochê é um jeito de desacelerar. Cada peça nasce devagar, entre fios, agulhas e a luz da janela do ateliê, e leva o tempo que precisar para ficar certa.</p>
+      <p>Acredito no que é feito à mão, com intenção e com bons materiais. Quando você encomenda uma peça, ela é pensada, tecida e acabada por uma só pessoa, ponto a ponto, para durar.”</p>
+      <p class="quem-por">Assinado por</p>
+      <p class="quem-assina">Sofia Rodrigues</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="duvidas">
+  <div class="container">
+    <p class="enc-tag">Dúvidas</p>
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-lista">
+      <details><summary>Quanto tempo leva para ficar pronto?</summary><p>A produção leva cerca de 35 dias úteis, contados a partir da confirmação do pedido. O prazo exato é combinado com o ateliê antes de começarmos.</p></details>
+      <details><summary>Como funciona o pagamento?</summary><p>Combinamos tudo em contato direto com o ateliê antes de iniciar a peça, com o valor e a forma de pagamento definidos de comum acordo.</p></details>
+      <details><summary>Como são definidas as medidas das peças?</summary><p>Cada modelo segue as medidas da coleção. Ajustes sob medida podem ser combinados em contato direto com o ateliê, antes da produção.</p></details>
+      <details><summary>Como funcionam as opções de paleta da coleção?</summary><p>Cada modelo é tecido na paleta de fios com que foi criado. Se quiser uma variação, conte na mensagem do pedido e o ateliê avalia se é possível.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="final-moldura">
+      <p class="final-tag">Ateliê LoopBloom</p>
+      <h2>Pronta para vestir uma peça tecida exclusivamente para você?</h2>
+      <p class="final-txt">Entre em contato direto com o nosso ateliê, tire as suas dúvidas e agende a produção do seu modelo.</p>
+      <a class="btn" href="#encomendar">Agendar encomenda no ateliê</a>
+    </div>
+  </div>
+</section>
+
+<div class="faixa" aria-hidden="true">
+  <div>
+    <span>Bolsas exclusivas</span><span class="p">•</span><span>Edições limitadas</span><span class="p">•</span><span>Feito à mão</span><span class="p">•</span><span>Sob encomenda</span><span class="p">•</span>
+    <span>Bolsas exclusivas</span><span class="p">•</span><span>Edições limitadas</span><span class="p">•</span><span>Feito à mão</span><span class="p">•</span><span>Sob encomenda</span><span class="p">•</span>
+    <span>Bolsas exclusivas</span><span class="p">•</span><span>Edições limitadas</span><span class="p">•</span><span>Feito à mão</span><span class="p">•</span><span>Sob encomenda</span><span class="p">•</span>
+    <span>Bolsas exclusivas</span><span class="p">•</span><span>Edições limitadas</span><span class="p">•</span><span>Feito à mão</span><span class="p">•</span><span>Sob encomenda</span><span class="p">•</span>
+  </div>
+</div>
+
+<footer>
+  <div class="container rodape">
+    <a class="logo-nav" href="#" aria-label="LoopBloom, início"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 20 C15.2 13.3 14.2 3.7 20.0 5.0 C25.8 3.7 24.8 13.3 20 20 C24.9 13.4 33.7 9.5 34.3 15.4 C37.2 20.5 27.9 22.5 20 20 C27.8 22.6 34.2 29.8 28.8 32.1 C24.9 36.5 20.1 28.2 20 20 C19.9 28.2 15.1 36.5 11.2 32.1 C5.8 29.8 12.2 22.6 20 20 C12.1 22.5 2.8 20.5 5.7 15.4 C6.3 9.5 15.1 13.4 20 20"/></svg><span>LoopBloom</span></a>
+    <small>© 2026 LoopBloom • Projeto conceitual desenvolvido para fins acadêmicos/portfólio de design. Este site é fictício, as peças apresentadas não estão disponíveis para venda e as encomendas não são processadas.</small>
+  </div>
+</footer>
+
+<dialog class="modal" id="modal" aria-labelledby="modal-t">
+  <p class="modal-tag">Projeto conceitual</p>
+  <h2 id="modal-t">Obrigado pelo interesse no LoopBloom!</h2>
+  <p>Este site é um projeto fictício de design e desenvolvimento de landing page autoral. As peças, coleções e formulários de encomenda servem apenas como demonstração de portfólio e não representam uma loja real em operação.</p>
+  <button type="button" class="btn" id="modalFecha">Entendi / Fechar</button>
+</dialog>
+
+<script>
+  const pecas = [
+    { id: "jasmin", nome: "Bolsa Jasmin", img: "img/prev-1.jpg?v=4" },
+    { id: "flora", nome: "Bolsa Flora", img: "img/prev-2.jpg?v=4" },
+    { id: "tulum", nome: "Bolsa Tulum", img: "img/prev-3.jpg?v=4" },
+    { id: "bambu", nome: "Bolsa Bambu", img: "img/prev-4.jpg?v=4" },
+    { id: "palma", nome: "Bolsa Palma", img: "img/prev-5.jpg?v=4" },
+    { id: "agave", nome: "Bolsa Agave", img: "img/prev-6.jpg?v=4" },
+    { id: "caramelo", nome: "Bolsa Caramelo", img: "img/prev-7.jpg?v=4" },
+  ];
+  const estado = { peca: pecas[2] };
+  const $ = id => document.getElementById(id);
+
+  // coleção
+  const looks = [
+    { nome: "Bolsa Jasmin" }, { nome: "Bolsa Flora" }, { nome: "Bolsa Tulum" }, { nome: "Bolsa Bambu" },
+    { nome: "Bolsa Palma" }, { nome: "Bolsa Agave" }, { nome: "Bolsa Caramelo" },
+  ];
+  $("gradePecas").innerHTML = looks.map((l, i) => `
+    <a class="look" href="#encomendar" data-nome="${l.nome}" aria-label="${l.nome}: fazer encomenda">
+      <div class="quadro">
+        <img class="base" src="img/look-${i + 1}.jpg" alt="${l.nome} em crochê" loading="lazy">
+      </div>
+      <div class="legenda"><h3>${l.nome}</h3><span class="ver">Encomendar →</span></div>
+    </a>`).join("");
+  $("gradePecas").addEventListener("click", e => {
+    const a = e.target.closest(".look"); if (!a) return;
+    e.preventDefault();
+    const p = pecas.find(p => p.nome === a.dataset.nome);
+    if (p) { estado.peca = p; desenha(); }
+    $("encomendar").scrollIntoView({ behavior: "smooth" });
+  });
+
+  // encomenda
+  $("opPeca").innerHTML = pecas.map(p => `<button class="op" data-id="${p.id}">${p.nome}</button>`).join("");
+  $("opPeca").addEventListener("click", e => { const b = e.target.closest(".op"); if (!b) return; estado.peca = pecas.find(p => p.id === b.dataset.id); desenha(); });
+
+  function desenha() {
+    document.querySelectorAll("#opPeca .op").forEach(b => b.classList.toggle("sel", b.dataset.id === estado.peca.id));
+    $("previaImg").src = estado.peca.img;
+    $("previaImg").alt = estado.peca.nome;
+    $("previaNome").textContent = estado.peca.nome;
+  }
+  desenha();
+
+  // ---- projeto fictício: botões de ação abrem um aviso
+  (function () {
+    const m = $("modal");
+    document.addEventListener("click", e => {
+      const a = e.target.closest("[data-modal]"); if (!a) return;
+      e.preventDefault();
+      if (typeof m.showModal === "function") m.showModal(); else m.setAttribute("open", "");
+    });
+    $("modalFecha").addEventListener("click", () => m.close());
+    m.addEventListener("click", e => { if (e.target === m) m.close(); });
+  })();
+
+  // ---- legenda do hero leva à bolsa Tulum na coleção
+  $("verTulum").addEventListener("click", e => {
+    e.preventDefault();
+    const alvo = document.querySelector('.look[data-nome="Bolsa Tulum"]'); if (!alvo) return;
+    alvo.scrollIntoView({ behavior: "smooth", block: "center" });
+    alvo.classList.add("destaque");
+    setTimeout(() => alvo.classList.remove("destaque"), 2600);
+  });
+
+  // ---- links internos rolam sem gravar #âncora no endereço; a página sempre abre no topo
+  (function () {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    const limpa = () => history.replaceState(null, "", location.pathname + location.search);
+    if (location.hash) limpa();
+    window.scrollTo(0, 0);
+    window.addEventListener("pageshow", e => { if (e.persisted) window.scrollTo(0, 0); });
+    document.addEventListener("click", e => {
+      const a = e.target.closest('a[href^="#"]'); if (!a || a.hasAttribute("data-modal") || e.defaultPrevented) return;
+      const id = a.getAttribute("href").slice(1);
+      const alvo = id ? document.getElementById(id) : document.body;
+      if (id && !alvo) return;
+      e.preventDefault();
+      if (id) alvo.scrollIntoView({ behavior: "smooth" }); else window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  })();
+
+  // ---- barra de navegação
+  (function () {
+    const topo = $("topo"), btn = $("menuBtn"), links = [...document.querySelectorAll("#links a")];
+    btn.addEventListener("click", () => { const a = topo.classList.toggle("aberto"); btn.setAttribute("aria-expanded", a); });
+    links.forEach(l => l.addEventListener("click", () => { topo.classList.remove("aberto"); btn.setAttribute("aria-expanded", false); }));
+    if (!("IntersectionObserver" in window)) return;
+    const alvos = links.map(l => document.querySelector(l.getAttribute("href"))).filter(Boolean);
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(l => l.classList.toggle("ativo", l.getAttribute("href") === "#" + e.target.id));
+    }), { rootMargin: "-40% 0px -55% 0px" });
+    alvos.forEach(a => io.observe(a));
+  })();
+</script>
+</body>
+</html>
