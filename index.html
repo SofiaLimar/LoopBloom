@@ -252,16 +252,14 @@
     .topo.rolou .subir-nav { display: inline-flex; margin-left: auto; animation: surge .6s ease; }
     .topo.rolou .menu-btn { margin-left: 0; }
   }
-  /* celulares estreitos: nome e Menu um pouco menores para a seta caber com folga entre eles */
-  @media (max-width: 400px) {
-    .topo .logo-nav { gap: .5rem; }
-    .topo .logo-nav svg { width: 1.75rem; height: 1.75rem; }
-    .topo .logo-nav span { font-size: .92rem; letter-spacing: .26em; margin-right: -.26em; }
-    .menu-btn { padding: .5rem .75rem; letter-spacing: .16em; }
-  }
-  @media (max-width: 360px) {
-    .topo .logo-nav span { font-size: .8rem; letter-spacing: .22em; margin-right: -.22em; }
-    .menu-btn { padding: .5rem .65rem; letter-spacing: .12em; }
+  /* celular: nome e Menu medidos em em, a partir de um só tamanho de letra. Ficam no tamanho original até ~380px;
+     abaixo disso encolhem juntos, como uma escala da mesma peça, só o necessário para a seta caber entre eles */
+  @media (max-width: 860px) {
+    .topo { --nav-fs: min(1.05rem, calc(6vw - 6px)); }
+    .topo .logo-nav { gap: .667em; font-size: var(--nav-fs); }
+    .topo .logo-nav svg { width: 1.905em; height: 1.905em; }
+    .topo .logo-nav span { font-size: 1em; }
+    .menu-btn { font-size: calc(var(--nav-fs) * .7048); padding: .743em 1.216em; border-radius: 1.0135em; }
   }
   @media (max-width: 1000px) { .look h3, .look:nth-child(n+4) h3 { font-size: 1.05rem; } .look .ver, .look:nth-child(n+4) .ver { font-size: .56rem; letter-spacing: .08em; } .look .legenda { gap: .3rem .4rem; } }
   @media (min-width: 861px) and (max-width: 940px) { .look h3, .look:nth-child(n+4) h3 { font-size: .98rem; } .look .ver, .look:nth-child(n+4) .ver { letter-spacing: .04em; } }
@@ -547,12 +545,23 @@
     });
   })();
 
-  // ---- voltar ao topo: aparece assim que a página sai do topo (no computador, numa calha livre; no celular, na barra)
+  // ---- voltar ao topo: aparece quando o hero inteiro já passou por baixo da barra e segue visível até o fim da página
+  //      (no computador, numa calha livre à direita; no celular, na barra entre o nome e o Menu)
   (function () {
-    const flut = $("subir"), topo = $("topo");
-    const atualiza = () => { const rolou = scrollY > 10; topo.classList.toggle("rolou", rolou); flut.classList.toggle("visivel", rolou); };
+    const flut = $("subir"), topo = $("topo"), hero = document.querySelector(".hero"), menu = $("menuBtn");
+    const calmo = matchMedia("(prefers-reduced-motion: reduce)");
+    const atualiza = () => {
+      const rolou = hero.getBoundingClientRect().bottom <= topo.getBoundingClientRect().bottom + 1;
+      topo.classList.toggle("rolou", rolou); flut.classList.toggle("visivel", rolou);
+    };
     addEventListener("scroll", atualiza, { passive: true });
-    document.querySelectorAll(".subir").forEach(b => b.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); b.blur(); }));
+    addEventListener("resize", atualiza);
+    document.querySelectorAll(".subir").forEach(b => b.addEventListener("click", () => {
+      topo.classList.remove("aberto"); menu.setAttribute("aria-expanded", false);
+      window.scrollTo({ top: 0, behavior: calmo.matches ? "instant" : "smooth" });
+      // o botão some ao chegar ao topo: o foco do teclado passa para o nome, em vez de se perder num elemento escondido
+      topo.querySelector(".logo-nav").focus({ preventScroll: true });
+    }));
     atualiza();
   })();
 
