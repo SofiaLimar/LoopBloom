@@ -252,6 +252,14 @@
     .faixa span.p { display: none; }
     .faixa span:nth-child(n+8) { display: none; }
   }
+  /* celular deitado: seletor e foto lado a lado para caberem juntos na altura curta */
+  @media (max-width: 860px) and (orientation: landscape) and (max-height: 500px) {
+    .painel { flex-direction: row; align-items: stretch; min-height: 0; }
+    .painel .col-modelo { flex: 1 1 0; min-width: 0; overflow-y: auto; }
+    .painel .previa { flex: none; height: 100%; width: auto; aspect-ratio: 2 / 3; }
+  }
+  /* celulares de 320px: botões com texto longo quebram a linha em vez de alargar a página */
+  @media (max-width: 360px) { .btn { white-space: normal; text-align: center; } }
   @media (prefers-reduced-motion: reduce) { .faixa div { animation: none; } * { transition: none !important; } }
 </style>
 </head>
