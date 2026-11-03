@@ -220,19 +220,48 @@
   .rodape .logo-nav span { font-size: .8rem; }
   .rodape small { font-size: .8rem; line-height: 1.65; color: #2c2825; text-align: center; max-width: 34rem; margin-inline: auto; }
 
-  /* VOLTAR AO TOPO: mesmo estilo dos botões; só aparece depois de rolar e nunca cobre conteúdo.
-     Computador: flutua no canto só quando há margem livre. Celular: entra na barra do topo no lugar do nome. */
-  .btn.subir { line-height: inherit; white-space: nowrap; background: rgba(243,236,224,.92); }
-  .btn.subir:hover, .btn.subir:focus-visible { background: var(--coral); color: #f5ecdc; }
-  .btn.subir:focus-visible { outline: 2px solid var(--rosa-esc); outline-offset: 3px; }
-  .subir-flut { position: fixed; z-index: 55; right: max(1.2rem, env(safe-area-inset-right)); bottom: max(1.2rem, env(safe-area-inset-bottom)); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); opacity: 0; visibility: hidden; transform: translateY(.6rem); transition: opacity .6s ease, transform .6s ease, visibility 0s linear .6s, background .35s ease, color .35s ease; }
-  .subir-flut.visivel { opacity: 1; visibility: visible; transform: none; transition: opacity .6s ease, transform .6s ease, visibility 0s, background .35s ease, color .35s ease; }
+  /* VOLTAR AO TOPO: círculo com seta, com o mesmo diâmetro, borda e cores dos botões da página.
+     Computador: flutua numa calha livre à direita, reservada fora do conteúdo. Celular: entra na barra, ao lado do Menu. */
+  :root { --subir: calc(2rem + .78rem * 1.6 + 2px); --calha: calc(1.2rem + var(--subir) + 1rem); }
+  .btn.subir { width: var(--subir); height: var(--subir); padding: 0; gap: 0; flex: none; border-radius: 50%; background: rgba(243,236,224,.92); }
+  .btn.subir svg { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .btn.subir:hover { background: rgba(243,236,224,.92); color: var(--coral); }
+  @media (hover: hover) { .btn.subir:hover { background: var(--coral); color: #f5ecdc; } }
+  .btn.subir:focus-visible { background: var(--coral); color: #f5ecdc; outline: 2px solid var(--rosa-esc); outline-offset: 3px; }
+  .subir-flut { position: fixed; z-index: 55; right: 1.2rem; bottom: max(1.2rem, env(safe-area-inset-bottom)); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility 0s linear .6s, background .35s ease, color .35s ease; }
+  .subir-flut.visivel { opacity: 1; visibility: visible; transition: opacity .6s ease, visibility 0s, background .35s ease, color .35s ease; }
   .subir-nav { display: none; }
   @keyframes surge { from { opacity: 0; } }
+  @media (min-width: 861px) {
+    /* calha à direita (e a mesma à esquerda, para o conteúdo seguir centralizado): só estreita telas abaixo de ~1300px */
+    .container { width: min(1120px, 100% - 2 * var(--calha)); }
+    .faixa div { padding-inline: var(--calha); }
+  }
+  /* com a calha, a coluna fica mais estreita: o "Encomendar" desce para baixo do nome em todas as peças */
+  @media (min-width: 861px) and (max-width: 1199px) { .look .legenda { flex-direction: column; align-items: flex-start; gap: .25rem; } }
+  /* e a coluna do pedido ganha um pouco mais de largura para o botão "Enviar pedido" não quebrar em mais linhas */
+  @media (min-width: 861px) and (max-width: 1299px) { .montador-grid { grid-template-columns: 1fr 1fr 1.2fr; } }
+  @media (min-width: 861px) and (max-width: 1099px) { .links { gap: 1.3rem; } .links a { white-space: nowrap; } .barra { gap: 1rem; } }
+  @media (min-width: 861px) and (max-width: 1099px) { .montador-grid { grid-template-columns: 1fr 1fr 1.3fr; } .col-info { padding-inline: 1.3rem; } }
   @media (max-width: 860px) {
+    :root { --subir: 2.2rem; }
     .subir-flut { display: none; }
-    .topo.rolou .logo-nav span { display: none; }
-    .topo.rolou .subir-nav { display: inline-flex; animation: surge .6s ease; }
+    .barra { gap: .7rem; }
+    .menu-btn { min-height: var(--subir); }
+    .btn.subir svg { width: .95rem; height: .95rem; }
+    .topo.rolou .subir-nav { display: inline-flex; margin-left: auto; animation: surge .6s ease; }
+    .topo.rolou .menu-btn { margin-left: 0; }
+  }
+  /* celulares estreitos: nome e Menu um pouco menores para a seta caber com folga entre eles */
+  @media (max-width: 400px) {
+    .topo .logo-nav { gap: .5rem; }
+    .topo .logo-nav svg { width: 1.75rem; height: 1.75rem; }
+    .topo .logo-nav span { font-size: .92rem; letter-spacing: .26em; margin-right: -.26em; }
+    .menu-btn { padding: .5rem .75rem; letter-spacing: .16em; }
+  }
+  @media (max-width: 360px) {
+    .topo .logo-nav span { font-size: .8rem; letter-spacing: .22em; margin-right: -.22em; }
+    .menu-btn { padding: .5rem .65rem; letter-spacing: .12em; }
   }
   @media (max-width: 1000px) { .look h3, .look:nth-child(n+4) h3 { font-size: 1.05rem; } .look .ver, .look:nth-child(n+4) .ver { font-size: .56rem; letter-spacing: .08em; } .look .legenda { gap: .3rem .4rem; } }
   @media (min-width: 861px) and (max-width: 940px) { .look h3, .look:nth-child(n+4) h3 { font-size: .98rem; } .look .ver, .look:nth-child(n+4) .ver { letter-spacing: .04em; } }
@@ -282,7 +311,7 @@
 <nav class="topo" id="topo" aria-label="Navegação principal">
   <div class="container barra">
     <a class="logo-nav" href="#" aria-label="LoopBloom, início"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 20 C15.2 13.3 14.2 3.7 20.0 5.0 C25.8 3.7 24.8 13.3 20 20 C24.9 13.4 33.7 9.5 34.3 15.4 C37.2 20.5 27.9 22.5 20 20 C27.8 22.6 34.2 29.8 28.8 32.1 C24.9 36.5 20.1 28.2 20 20 C19.9 28.2 15.1 36.5 11.2 32.1 C5.8 29.8 12.2 22.6 20 20 C12.1 22.5 2.8 20.5 5.7 15.4 C6.3 9.5 15.1 13.4 20 20"/></svg><span>LoopBloom</span></a>
-    <button type="button" class="btn subir subir-nav" aria-label="Voltar ao topo">Topo ↑</button>
+    <button type="button" class="btn subir subir-nav" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="links">Menu</button>
     <ul class="links" id="links">
       <li><a href="#pecas">Bolsas</a></li>
@@ -424,7 +453,7 @@
   </div>
 </footer>
 
-<button type="button" class="btn subir subir-flut" id="subir" aria-label="Voltar ao topo" tabindex="-1">Topo ↑</button>
+<button type="button" class="btn subir subir-flut" id="subir" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 
 <dialog class="modal" id="modal" aria-labelledby="modal-t">
   <p class="modal-tag">Projeto conceitual</p>
@@ -518,30 +547,11 @@
     });
   })();
 
-  // ---- voltar ao topo: aparece depois do hero; no computador, só quando o canto não cobre nenhum conteúdo
+  // ---- voltar ao topo: aparece assim que a página sai do topo (no computador, numa calha livre; no celular, na barra)
   (function () {
-    const flut = $("subir"), topo = $("topo"), celular = matchMedia("(max-width: 860px)");
-    const conteudo = 'section a, footer a, button, summary, p, li, small, h1, h2, h3, img, .previa, .bloco, .col-info, .final-moldura, .faixa';
-    const sobre = (r, s) => r.left < s.right && r.right > s.left && r.top < s.bottom && r.bottom > s.top;
-    let pedido = false;
-    function atualiza() {
-      pedido = false;
-      const passou = scrollY > innerHeight * .8;
-      topo.classList.toggle("rolou", passou);
-      let livre = false;
-      if (passou && !celular.matches) {
-        // posição final do botão (offset* ignora o deslocamento da animação de entrada)
-        const m = 8, x = flut.offsetLeft, y = flut.offsetTop;
-        const area = { left: x - m, right: x + flut.offsetWidth + m, top: y - m, bottom: y + flut.offsetHeight + m };
-        livre = ![...document.querySelectorAll(conteudo)].some(el => !el.closest(".topo, dialog, .subir") && el.getClientRects().length && sobre(area, el.getBoundingClientRect()));
-      }
-      flut.classList.toggle("visivel", livre);
-      flut.tabIndex = livre ? 0 : -1;
-    }
-    const agenda = () => { if (!pedido) { pedido = true; requestAnimationFrame(atualiza); } };
-    addEventListener("scroll", agenda, { passive: true });
-    addEventListener("resize", agenda);
-    addEventListener("load", agenda);
+    const flut = $("subir"), topo = $("topo");
+    const atualiza = () => { const rolou = scrollY > 10; topo.classList.toggle("rolou", rolou); flut.classList.toggle("visivel", rolou); };
+    addEventListener("scroll", atualiza, { passive: true });
     document.querySelectorAll(".subir").forEach(b => b.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); b.blur(); }));
     atualiza();
   })();
