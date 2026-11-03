@@ -530,8 +530,9 @@
       topo.classList.toggle("rolou", passou);
       let livre = false;
       if (passou && !celular.matches) {
-        const r = flut.getBoundingClientRect(), m = 8;
-        const area = { left: r.left - m, right: r.right + m, top: r.top - m, bottom: r.bottom + m };
+        // posição final do botão (offset* ignora o deslocamento da animação de entrada)
+        const m = 8, x = flut.offsetLeft, y = flut.offsetTop;
+        const area = { left: x - m, right: x + flut.offsetWidth + m, top: y - m, bottom: y + flut.offsetHeight + m };
         livre = ![...document.querySelectorAll(conteudo)].some(el => !el.closest(".topo, dialog, .subir") && el.getClientRects().length && sobre(area, el.getBoundingClientRect()));
       }
       flut.classList.toggle("visivel", livre);
