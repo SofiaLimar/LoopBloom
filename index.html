@@ -416,10 +416,10 @@
     <p class="enc-tag">Dúvidas</p>
     <h2>Perguntas frequentes</h2>
     <div class="faq-lista">
-      <details><summary>Quanto tempo leva para ficar pronto?</summary><p>A produção leva cerca de 35 dias úteis, contados a partir da confirmação do pedido. O prazo exato é combinado com o ateliê antes de começarmos.</p></details>
-      <details><summary>Como funciona o pagamento?</summary><p>Combinamos tudo em contato direto com o ateliê antes de iniciar a peça, com o valor e a forma de pagamento definidos de comum acordo.</p></details>
       <details><summary>Como são definidas as medidas das peças?</summary><p>Cada modelo segue as medidas da coleção. Ajustes sob medida podem ser combinados em contato direto com o ateliê, antes da produção.</p></details>
       <details><summary>Como funcionam as opções de paleta da coleção?</summary><p>Cada modelo é tecido na paleta de fios com que foi criado. Se quiser uma variação, conte na mensagem do pedido e o ateliê avalia se é possível.</p></details>
+      <details><summary>Como funciona troca e devolução?</summary><p>Você pode desistir da compra em até 7 dias depois de receber a bolsa, como prevê o Código de Defesa do Consumidor. Basta avisar o ateliê e devolver a peça sem sinais de uso, e o valor é reembolsado integralmente.</p><p>Se a bolsa chegar com algum defeito de confecção, conte para o ateliê em até 30 dias e a peça é consertada ou refeita sem custo para você.</p></details>
+      <details><summary>Como cuidar da minha bolsa?</summary><p>Para limpar, prefira tirar manchas pontuais com um pano úmido e sabão neutro. Se precisar lavar a peça inteira, faça isso à mão, em água fria, sem esfregar nem torcer. Depois, aperte com cuidado dentro de uma toalha para tirar o excesso de água e deixe secar na horizontal, à sombra, para os pontos não deformarem. Nunca use máquina de lavar, alvejante ou secadora.</p><p>Para guardar, preencha a bolsa com papel de seda para manter o formato e guarde-a deitada, dentro de um saquinho de algodão, em um lugar seco e longe do sol. Não deixe pendurada pelas alças, pois o peso estica o crochê com o tempo.</p></details>
     </div>
   </div>
 </section>
@@ -576,6 +576,14 @@
       if (e.isIntersecting) links.forEach(l => l.classList.toggle("ativo", l.getAttribute("href") === "#" + e.target.id));
     }), { rootMargin: "-40% 0px -55% 0px" });
     alvos.forEach(a => io.observe(a));
+  })();
+
+  // ---- perguntas frequentes: abrir uma resposta fecha a que estava aberta
+  (function () {
+    const itens = [...document.querySelectorAll(".faq-lista details")];
+    itens.forEach(d => d.addEventListener("toggle", () => {
+      if (d.open) itens.forEach(o => { if (o !== d) o.open = false; });
+    }));
   })();
 </script>
 </body>
